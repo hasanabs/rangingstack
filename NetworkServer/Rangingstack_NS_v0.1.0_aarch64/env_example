@@ -1,0 +1,80 @@
+# please change this file name into ".env".
+# from this file and adjust the following variables according to your credentials
+
+# ######## .env example ######## #
+
+# MQTT Broker
+MQTT_BROKER_ADDR = "mqttbrokerurl"  # for non TLS only
+MQTT_BROKER_PORT="1883" # for non TLS only
+PARENT_TOPIC = "ParTopic"
+REQ_TOPIC = "RequestTopic" # ParTopic/+/RequestTopic
+RES_TOPIC = "ResponseTopic" # ParTopic/+/ResponseTopic
+RESULT_TOPIC = "ResultTopic" # ParTopic/+/ResultTopic
+
+# SQL Database
+DB_HOST = "database host"
+DB_PORT = "3306"
+DB_USER = "db user name"
+DB_PASSWORD = "db password"
+DB_NAME = "db name"
+
+# API
+API_PORT = "8080"
+
+# #Table structure example
+# #Table structure for node config table so called "node_config"
+# CREATE TABLE node_config (
+#     network_id SMALLINT UNSIGNED NOT NULL,
+#     node_id SMALLINT UNSIGNED NOT NULL,
+#     mode TINYINT UNSIGNED NOT NULL,
+#     interval_check SMALLINT UNSIGNED NOT NULL,
+#     repeat_rang TINYINT UNSIGNED NOT NULL,
+#     lat DECIMAL(9,6) NOT NULL DEFAULT 0, -- Latitude with default value of 0
+#     lon DECIMAL(9,6) NOT NULL DEFAULT 0,  -- Longitude with default value of 0
+#     PRIMARY KEY (network_id, node_id)
+# );
+
+# #Table structure for storing Instruction_check log (containing time stamp, node_id, battery status, and its rssi) so called "log_Instruction_check"
+# CREATE TABLE log_Instruction_check (
+#     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+#     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+#     network_id SMALLINT UNSIGNED NOT NULL,
+#     node_id SMALLINT UNSIGNED NOT NULL,
+#     bat_lvl TINYINT UNSIGNED NOT NULL,
+#     rssi SMALLINT NOT NULL DEFAULT 0
+# );
+
+# #Table structure for storing ranging ptp result (in batch of ranging_id) so called "ptp_ranging_result"
+# CREATE TABLE ptp_ranging_result (
+#     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+#     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+#     network_id SMALLINT UNSIGNED NOT NULL,
+#     ranging_id SMALLINT UNSIGNED NOT NULL,
+#     master_node SMALLINT UNSIGNED NOT NULL,
+#     slave_node SMALLINT UNSIGNED NOT NULL,
+#     fei_corr_val SMALLINT UNSIGNED NOT NULL,
+#     rrssi TINYINT UNSIGNED NOT NULL
+# );
+
+# #Table structure for storing advanced ranging result (in batch of ranging_id) so called "adv_ranging_result"
+# CREATE TABLE adv_ranging_result (
+#     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+#     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+#     network_id SMALLINT UNSIGNED NOT NULL,
+#     ranging_id SMALLINT UNSIGNED NOT NULL,
+#     node_id SMALLINT UNSIGNED NOT NULL,
+#     adv_m_node SMALLINT UNSIGNED NOT NULL,
+#     adv_s_node SMALLINT UNSIGNED NOT NULL,
+#     raw_val SMALLINT UNSIGNED NOT NULL,
+#     rrssi TINYINT UNSIGNED NOT NULL
+# );
+
+# #Table structure for node config table so called "location_result"
+# CREATE TABLE location_result (
+#     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+#     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+#     network_id SMALLINT UNSIGNED NOT NULL,
+#     node_id SMALLINT UNSIGNED NOT NULL,
+#     lat DECIMAL(9,6) NOT NULL,
+#     lon DECIMAL(9,6) NOT NULL
+# );

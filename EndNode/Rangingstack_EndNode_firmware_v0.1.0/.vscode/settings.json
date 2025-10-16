@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "task.h": "c",
+        "list.h": "c",
+        "timers.h": "c",
+        "stack_macros.h": "c",
+        "queue.h": "c",
+        "freertos.h": "c"
+    }
+}

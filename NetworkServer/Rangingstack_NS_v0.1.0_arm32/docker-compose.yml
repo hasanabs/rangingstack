@@ -1,0 +1,22 @@
+services:
+  taskmanager:
+    build: .
+    container_name: rangingstack_task_manager_1
+    network_mode: host
+    restart: always
+    working_dir: /app
+    volumes:
+      - ./Build:/app # Mount Build folder to access binaries
+      - ./.env:/app/.env # Mount .env file for configuration
+    command: [ "/app/task_manager" ]
+
+  datamanager:
+    build: .
+    container_name: rangingstack_data_manager_1
+    network_mode: host
+    restart: always
+    working_dir: /app
+    volumes:
+      - ./Build:/app # Mount Build folder to access binaries
+      - ./.env:/app/.env # Mount .env file for configuration
+    command: [ "/app/data_manager" ]

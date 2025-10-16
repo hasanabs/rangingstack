@@ -1,49 +1,38 @@
-# Ranging Stack Framework – Coming Soon 🚧
-
-This repository will host the hardware and software files related to the research paper:
-
-**"Design and Development of a Scalable, Precise, and Energy-Efficient Localization Framework Based on LoRa 2.4 GHz"**  
-by Hasan Albinsaid, Bodhibrata Mukhopadhyay, and Mohamed-Slim Alouini.
-
----
+# Ranging Stack Framework
 
 ## 📄 Overview
 
-We are developing a modular and reproducible framework for localization using LoRa 2.4 GHz, focusing on:
+A modular, reproducible framework for localization using LoRa ranging-capable transceiver, designed for **scalability** and **energy efficiency**.
 
-- ✅ **Scalability**
-- ✅ **High-precision ranging**
-- ✅ **Energy-efficient operation**
-
----
-
-## 📦 Repository Contents (Coming Soon)
-
-The following components will be made publicly available:
-
-- **🖥️ Network Server**  
-  Virtualized using Docker for easy deployment and scalability.
-
-- **📐 Hardware Design**  
-  CAD schematics and PCB layouts for:
-  - LoRa-based Node
-  - Gateway device
-
-- **🧠 Firmware**  
-  Embedded code for both node and gateway, supporting precise ranging and communication.
+The stack is composed of:
+- **Network Server** — containerized service coordinating nodes and gateways
+- **Gateway** — bridges nodes to the Network Server (hardware + firmware)
+- **End Node** — LoRa ranging-capable device (hardware + firmware)
 
 ---
 
-## ⏳ Availability
+## 📁 Repository Structure
 
-This repository is public, but the source code and design files are withheld until the research papers are officially published.
+- **`NetworkServer/`**  
+  Demo Network Server packaged for Docker deployment.  
+  → See `NetworkServer/README.md` for usage, notes, and licensing.
 
-Stay tuned for the release!
+- **`Gateway/`**  
+  - `hardware:` — ESP32-S3 + SX1280 reference design (Gerbers, EasyEDA)  
+  - `firmware:` — PlatformIO project and configuration notes  
+  → See `Gateway/README.md`.
+
+- **`EndNode/`**  
+  - `hardware:` — nRF52832 + SX1280 compact PCB (Gerbers, EasyEDA)  
+  - `firmware:` — PlatformIO project and configuration notes  
+  → See `EndNode/README.md`.
+
+> Each subcomponent includes its own license file. Please review it.
 
 ---
 
-### 📫 Contact
+## 📫 Contact
 
-For questions or collaboration inquiries, feel free to reach out:
+For questions or collaboration inquiries:
 
-- **Hasan Albinsaid** – `hasan.albinsaid@kaust.edu.sa`
+- **Hasan Albinsaid** — `mail@hasanabs.com`
