@@ -402,6 +402,11 @@ void rangingPassive(uint16_t Master_id, uint16_t Slave_id)
             xSemaphoreGive(xBlock_LP_Commun_sem);
             if (sucess_count > 0)
             {
+                uint8_t delayTransmission = static_cast<uint8_t>(random(2, delaySendResultMax)); // in seconds unit (because a single context switching in this node set as 1000 ms)
+                preSleep();
+                delay(1);
+                vTaskDelay(delayTransmission); // delay tranmission
+                afterWake();
                 createSendPacket(LT, GW_Address, Node_address, OP_RANG_RES_AR, 500, &resultRanging, true, 3); // Report num of success ranging to GW
             }
         }
